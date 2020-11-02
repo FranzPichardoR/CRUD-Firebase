@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final de Web</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBDvho1kOis0_C_qywKWg0Kd65U72GAW00",
+            authDomain: "final-de-web-f1f4a.firebaseapp.com",
+            databaseURL: "https://final-de-web-f1f4a.firebaseio.com",
+            projectId: "final-de-web-f1f4a",
+            storageBucket: "final-de-web-f1f4a.appspot.com",
+            messagingSenderId: "264777662099",
+            appId: "1:264777662099:web:38b7d170694c98abf49766",
+            measurementId: "G-HBHPY46QQM"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <br>
+    <div class="container">
+        <div class="form-group">
+            <label for="ID">ID</label>
+            <input type="text" class="form-control" name="ID" id="ID" placeholder="Enter ID">
+        </div>
+        <div class="form-group">
+            <label for="fNameUpdate">First Name</label>
+            <input type="text" class="form-control" name="fNameUpdate" id="fNameUpdate" placeholder="Enter first name">
+        </div>
+        <div class="form-group">
+            <label for="lNameUpdate">Last Name</label>
+            <input type="text" class="form-control" name="lNameUpdate" id="lNameUpdate" placeholder="Enter last name">
+        </div>
+        <div class="form-group">
+            <label for="emailUpdate">Email</label>
+            <input type="email" class="form-control" name="emailUpdate" id="emailUpdate" placeholder="Enter email address">
+        </div>
+        <div class="form-group">
+            <label for="mobileUpdate">Mobile #</label>
+            <input type="text" class="form-control" name="mobileUpdate" id="mobileUpdate" placeholder="Enter phone number">
+        </div>
+
+        <input type="button" value="Update" class="btn btn-warning" onclick="update_user();">
+        <br>
+        <br>
+
+        <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#contactForm">
+            Add New Record
+        </button>
+        <h3>My Contacts</h3>
+        <br>
+        <table class="table table-bordered table-striped" id="tbl_users_list">
+            <tr>
+                <th>No.</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email Address</th>
+                <th>Delete</th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="modal" id="contactForm">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Contact Form</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="fName">First Name</label>
+                        <input type="text" class="form-control" name="fName" id="fName" placeholder="Enter first name">
+                    </div>
+                    <div class="form-group">
+                        <label for="lName">Last Name</label>
+                        <input type="text" class="form-control" name="lName" id="lName" placeholder="Enter last name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name="email" id="email"
+                            placeholder="Enter email address">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile #</label>
+                        <input type="text" class="form-control" name="mobile" id="mobile"
+                            placeholder="Enter phone number">
+                    </div>
+                    <button type="button" class="btn btn-warning" data-dismiss="modal"><i
+                            class="far fa-thumbs-down"></i>Cancel</button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="save_user();"><i
+                            class="far fa-thumbs-up"></i>Save</button>
+                    <button type="submit" class="btn btn-danger" data-dismiss="modal"><i class="far fa-thumbs-up"></i>Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
